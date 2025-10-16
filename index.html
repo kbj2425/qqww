@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>직업 탐구: 스포츠 감독 및 코치</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .slide {
+            display: none;
+            animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .slide.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px) scale(0.95);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        #card-news-container {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        #card-news-container:hover {
+            transform: translateY(-5px);
+        }
+        
+        .nav-button {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-button:hover:not(:disabled) {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-button:active:not(:disabled) {
+            transform: translateY(-1px) scale(1.02);
+        }
+        
+        .nav-button:disabled {
+            cursor: not-allowed;
+        }
+        
+        .slide h2 {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .slide h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+        
+        .bg-blue-50 {
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        
+        .bg-blue-50:hover {
+            background-color: rgb(219 234 254);
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+        }
+        
+        .bg-green-100, .bg-blue-100 {
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        
+        .bg-green-100:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(34, 197, 94, 0.2);
+        }
+        
+        .bg-blue-100:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(59, 130, 246, 0.2);
+        }
+        
+        .bg-gray-100 {
+            transition: all 0.3s ease;
+        }
+        
+        .bg-gray-100:hover {
+            background-color: rgb(229 231 235);
+        }
+        
+        #slide-indicators div {
+            transition: all 0.3s ease;
+        }
+        
+        #slide-indicators div:hover {
+            transform: scale(1.3);
+        }
+        
+        .bg-white\/20 {
+            backdrop-filter: blur(10px);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        li {
+            transition: all 0.3s ease;
+        }
+        
+        li:hover {
+            transform: translateX(8px);
+        }
+        
+        .bg-yellow-100 {
+            animation: glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(234, 179, 8, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(234, 179, 8, 0.8); }
+        }
+        
+        /* 그라디언트 텍스트 효과 */
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* 카드 내부 요소에 스타일 추가 */
+        strong {
+            position: relative;
+            display: inline-block;
+        }
+        
+        /* 스크롤바 스타일링 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <div class="w-full max-w-md mx-auto">
+        <div id="card-news-container" class="relative bg-white rounded-2xl shadow-xl overflow-hidden" style="aspect-ratio: 1/1;">
+            
+            <!-- Slide 1: 직업명 -->
+            <div class="slide active p-8 md:p-12 flex flex-col justify-center items-center text-center h-full bg-gradient-to-br from-blue-500 to-indigo-600 text-white">
+                <div class="bg-white/20 p-4 rounded-full mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-bold mb-2">스포츠 감독 및 코치</h1>
+                <p class="text-lg md:text-xl opacity-90">선수들의 잠재력을 이끌어내고, 팀을 승리로 이끄는 필드의 지휘자 🏀</p>
+            </div>
+
+            <!-- Slide 2: 선택이유 -->
+            <div class="slide p-8 md:p-10 flex flex-col justify-center h-full">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">🤔 왜 '스포츠 감독 및 코치'일까?</h2>
+                <ul class="space-y-4 text-lg">
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-3 mt-1">✔</span>
+                        <div><strong class="font-bold">높은 직업 만족도:</strong> 재직자의 <span class="text-blue-600 font-bold">70.8%</span>가 만족!</div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-3 mt-1">✔</span>
+                        <div><strong class="font-bold">성취감과 영향력:</strong> 선수와 함께 성장하며 성취를 이루고, 긍정적인 영향을 주는 보람 있는 직업</div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-500 mr-3 mt-1">✔</span>
+                        <div><strong class="font-bold">꾸준한 수요:</strong> <span class="text-blue-600 font-bold">90%</span>의 재직자가 향후 5년간 일자리가 유지되거나 증가할 것으로 전망</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Slide 3: 하는일 -->
+            <div class="slide p-8 md:p-10 flex flex-col justify-center h-full">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">📋 어떤 일을 할까?</h2>
+                <p class="text-center text-gray-600 mb-6 text-lg">스포츠 감독 및 코치는 선수들의 훈련을 지도하고, 경기 전략을 수립하는 등 팀의 경기력 향상과 관련된 모든 과정을 총괄하는 리더입니다.</p>
+                <div class="space-y-3 text-left">
+                    <p class="bg-blue-50 p-3 rounded-lg flex items-center"><span class="mr-3 text-blue-500">📊</span> 선수 기량 분석 및 맞춤 훈련 계획</p>
+                    <p class="bg-blue-50 p-3 rounded-lg flex items-center"><span class="mr-3 text-blue-500">🤝</span> 팀워크 강화 및 동기 부여</p>
+                    <p class="bg-blue-50 p-3 rounded-lg flex items-center"><span class="mr-3 text-blue-500">✍️</span> 경기 데이터 분석 및 전략 수립</p>
+                </div>
+            </div>
+
+            <!-- Slide 4: 관련교육 및 자격 -->
+            <div class="slide p-8 md:p-10 flex flex-col justify-center h-full">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">🎓 어떻게 준비할까?</h2>
+                <div class="space-y-5">
+                    <div>
+                        <h3 class="font-bold text-lg text-indigo-600 mb-2">관련 학과</h3>
+                        <p class="text-gray-700 bg-gray-100 p-3 rounded-md">체육학과, 예체능교육과, 경호학과 등</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-indigo-600 mb-2">필수 자격증</h3>
+                        <p class="text-gray-700 bg-gray-100 p-3 rounded-md">전문스포츠지도사 1, 2급<br>경기지도사 1, 2급</p>
+                    </div>
+                </div>
+                <p class="mt-6 text-center text-sm bg-yellow-100 text-yellow-800 p-3 rounded-lg">💡 국가대표팀 코치가 되려면 관련 자격증은 필수입니다!</p>
+            </div>
+
+            <!-- Slide 5: 만족도 및 전망 -->
+            <div class="slide p-8 md:p-10 flex flex-col justify-center items-center text-center h-full">
+                <h2 class="text-2xl font-bold text-gray-800 mb-8">📈 이 직업, 만족스러울까?</h2>
+                <div class="w-full space-y-6">
+                    <div class="bg-green-100 p-4 rounded-lg">
+                        <h3 class="text-lg font-bold text-green-800">직업 만족도</h3>
+                        <p class="text-3xl font-bold text-green-600">70.8% (좋음)</p>
+                    </div>
+                    <div class="bg-blue-100 p-4 rounded-lg">
+                        <h3 class="text-lg font-bold text-blue-800">일자리 전망</h3>
+                        <p class="text-3xl font-bold text-blue-600">90% (유지 또는 증가)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: 업무 특성 -->
+            <div class="slide p-6 md:p-8 flex flex-col justify-center h-full text-sm">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">💡 나와 잘 맞을까?</h2>
+                <div class="space-y-3">
+                    <p><strong class="text-blue-600">핵심 능력:</strong> 가르치기(티칭), 시간 관리, 사람 파악</p>
+                    <p><strong class="text-blue-600">필요 지식:</strong> 교육 및 훈련에 대한 깊은 이해</p>
+                    <p><strong class="text-blue-600">업무 환경:</strong> 실외 근무, 치열한 경쟁, 높은 활동량</p>
+                    <p><strong class="text-blue-600">추천 성격:</strong> 리더십, 인내, 자기통제</p>
+                    <p><strong class="text-blue-600">추천 흥미:</strong> 현실형(Realistic), 진취형(Enterprising)</p>
+                </div>
+            </div>
+
+            <!-- Slide 7: 필요기술 및 지식 -->
+            <div class="slide p-8 md:p-10 flex flex-col justify-center h-full">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">🏆 진짜 전문가가 되려면?</h2>
+                <p class="text-center text-gray-600 mb-6">좋은 선수가 바로 좋은 코치가 되는 것은 아닙니다. 선수 경력 외에도 다음 역량이 필수적입니다.</p>
+                <ul class="space-y-3 list-inside list-disc text-gray-700">
+                    <li>선수들을 이끌 수 있는 <span class="font-bold text-indigo-600">강력한 리더십</span></li>
+                    <li>체계적인 훈련을 위한 <span class="font-bold text-indigo-600">이론과 기술적 지식</span></li>
+                    <li>대학 전공 및 <span class="font-bold text-indigo-600">지도자 연수 과정 이수</span>가 매우 유리</li>
+                </ul>
+            </div>
+
+            <!-- Slide 8: 임금 -->
+            <div class="slide p-8 md:p-10 flex flex-col justify-center items-center text-center h-full">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">💰 연봉은 어느 정도일까?</h2>
+                <div class="text-center bg-gray-100 p-6 rounded-lg">
+                    <p class="text-gray-700">제공된 정보에는 임금 데이터가 없습니다.</p>
+                    <p class="mt-4 text-gray-600">감독 및 코치의 임금은 <strong class="text-gray-800">종목, 소속팀의 규모, 개인의 경력과 역량</strong>에 따라 매우 큰 차이를 보입니다. 높은 성과를 내는 스타 감독의 경우 높은 연봉을 받습니다.</p>
+                </div>
+            </div>
+
+            <!-- Slide 9: 출처 -->
+            <div class="slide p-8 md:p-12 flex flex-col justify-center items-center text-center h-full bg-gray-800 text-white">
+                <h2 class="text-2xl font-bold mb-4">Source</h2>
+                <p class="text-4xl font-bold text-gray-200">고용24</p>
+                <p class="mt-2 text-lg text-gray-400">work.go.kr</p>
+            </div>
+            
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex justify-between items-center mt-4">
+            <button id="prevBtn" class="nav-button bg-white text-gray-700 font-bold py-2 px-5 rounded-full shadow-md transition-all duration-300">이전</button>
+            <div id="slide-indicators" class="flex space-x-2"></div>
+            <button id="nextBtn" class="nav-button bg-blue-500 text-white font-bold py-2 px-5 rounded-full shadow-md transition-all duration-300">다음</button>
+        </div>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const indicatorsContainer = document.getElementById('slide-indicators');
+        let currentSlide = 0;
+        
+        slides.forEach((_, i) => {
+            const indicator = document.createElement('div');
+            indicator.classList.add('w-2.5', 'h-2.5', 'rounded-full', 'transition-all', 'duration-300', 'cursor-pointer');
+            indicator.addEventListener('click', () => showSlide(i));
+            indicatorsContainer.appendChild(indicator);
+        });
+
+        const indicators = indicatorsContainer.querySelectorAll('div');
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[n].classList.add('active');
+            
+            indicators.forEach((indicator, index) => {
+                if (index === n) {
+                    indicator.classList.add('bg-blue-500');
+                    indicator.classList.remove('bg-gray-300');
+                } else {
+                    indicator.classList.add('bg-gray-300');
+                    indicator.classList.remove('bg-blue-500');
+                }
+            });
+
+            currentSlide = n;
+            
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === slides.length - 1;
+            prevBtn.classList.toggle('opacity-50', currentSlide === 0);
+            nextBtn.classList.toggle('opacity-50', currentSlide === slides.length - 1);
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < slides.length - 1) {
+                showSlide(currentSlide + 1);
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        });
+
+        showSlide(0);
+    </script>
+</body>
+</html>
