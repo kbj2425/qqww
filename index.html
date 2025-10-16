@@ -78,38 +78,24 @@
             border-radius: 2px;
         }
         
-        .bg-blue-50 {
+        .info-box {
             transition: all 0.3s ease;
             cursor: default;
         }
         
-        .bg-blue-50:hover {
-            background-color: rgb(219 234 254);
+        .info-box:hover {
             transform: translateX(5px);
             box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
         }
         
-        .bg-green-100, .bg-blue-100 {
+        .stat-card {
             transition: all 0.3s ease;
             cursor: default;
         }
         
-        .bg-green-100:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(34, 197, 94, 0.2);
-        }
-        
-        .bg-blue-100:hover {
+        .stat-card:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 16px rgba(59, 130, 246, 0.2);
-        }
-        
-        .bg-gray-100 {
-            transition: all 0.3s ease;
-        }
-        
-        .bg-gray-100:hover {
-            background-color: rgb(229 231 235);
         }
         
         #slide-indicators div {
@@ -120,7 +106,7 @@
             transform: scale(1.3);
         }
         
-        .bg-white\/20 {
+        .icon-box {
             backdrop-filter: blur(10px);
             animation: pulse 2s ease-in-out infinite;
         }
@@ -138,7 +124,7 @@
             transform: translateX(8px);
         }
         
-        .bg-yellow-100 {
+        .alert-box {
             animation: glow 2s ease-in-out infinite;
         }
         
@@ -147,21 +133,6 @@
             50% { box-shadow: 0 0 20px rgba(234, 179, 8, 0.8); }
         }
         
-        /* 그라디언트 텍스트 효과 */
-        .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        /* 카드 내부 요소에 스타일 추가 */
-        strong {
-            position: relative;
-            display: inline-block;
-        }
-        
-        /* 스크롤바 스타일링 */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -188,30 +159,30 @@
             
             <!-- Slide 1: 직업명 -->
             <div class="slide active p-8 md:p-12 flex flex-col justify-center items-center text-center h-full bg-gradient-to-br from-blue-500 to-indigo-600 text-white">
-                <div class="bg-white/20 p-4 rounded-full mb-6">
+                <div class="icon-box bg-white/20 p-4 rounded-full mb-6">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
                 </div>
                 <h1 class="text-3xl md:text-4xl font-bold mb-2">스포츠 감독 및 코치</h1>
-                <p class="text-lg md:text-xl opacity-90">선수들의 잠재력을 이끌어내고, 팀을 승리로 이끄는 필드의 지휘자 🏀</p>
+                <p class="text-lg md:text-xl opacity-90">선수들의 잠재력을 이끌어내고, 팀을 승리로 이끄는 필드의 지휘자 🏆</p>
             </div>
 
             <!-- Slide 2: 선택이유 -->
             <div class="slide p-8 md:p-10 flex flex-col justify-center h-full">
                 <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">🤔 왜 '스포츠 감독 및 코치'일까?</h2>
-                <ul class="space-y-4 text-lg">
+                <ul class="space-y-4 text-base">
                     <li class="flex items-start">
-                        <span class="text-green-500 mr-3 mt-1">✔</span>
-                        <div><strong class="font-bold">높은 직업 만족도:</strong> 재직자의 <span class="text-blue-600 font-bold">70.8%</span>가 만족!</div>
+                        <span class="text-green-500 mr-3 mt-1 text-xl">✔</span>
+                        <div><strong class="font-bold text-gray-800">높은 직업 만족도:</strong> 재직자의 <span class="text-blue-600 font-bold">70.8%</span>가 만족!</div>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-green-500 mr-3 mt-1">✔</span>
-                        <div><strong class="font-bold">성취감과 영향력:</strong> 선수와 함께 성장하며 성취를 이루고, 긍정적인 영향을 주는 보람 있는 직업</div>
+                        <span class="text-green-500 mr-3 mt-1 text-xl">✔</span>
+                        <div><strong class="font-bold text-gray-800">성취감과 영향력:</strong> 선수와 함께 성장하며 성취를 이루고, 긍정적인 영향을 주는 보람 있는 직업</div>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-green-500 mr-3 mt-1">✔</span>
-                        <div><strong class="font-bold">꾸준한 수요:</strong> <span class="text-blue-600 font-bold">90%</span>의 재직자가 향후 5년간 일자리가 유지되거나 증가할 것으로 전망</div>
+                        <span class="text-green-500 mr-3 mt-1 text-xl">✔</span>
+                        <div><strong class="font-bold text-gray-800">꾸준한 수요:</strong> 재직자의 <span class="text-blue-600 font-bold">90%</span>가 향후 5년간 일자리가 유지되거나 증가할 것으로 전망</div>
                     </li>
                 </ul>
             </div>
@@ -219,11 +190,24 @@
             <!-- Slide 3: 하는일 -->
             <div class="slide p-8 md:p-10 flex flex-col justify-center h-full">
                 <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">📋 어떤 일을 할까?</h2>
-                <p class="text-center text-gray-600 mb-6 text-lg">스포츠 감독 및 코치는 선수들의 훈련을 지도하고, 경기 전략을 수립하는 등 팀의 경기력 향상과 관련된 모든 과정을 총괄하는 리더입니다.</p>
+                <p class="text-center text-gray-600 mb-6">운동선수들의 훈련을 지도하고 시합 전략을 수립하는 등 운동선수단의 운영 및 경기력 향상에 관련된 제반 사항을 총괄합니다.</p>
                 <div class="space-y-3 text-left">
-                    <p class="bg-blue-50 p-3 rounded-lg flex items-center"><span class="mr-3 text-blue-500">📊</span> 선수 기량 분석 및 맞춤 훈련 계획</p>
-                    <p class="bg-blue-50 p-3 rounded-lg flex items-center"><span class="mr-3 text-blue-500">🤝</span> 팀워크 강화 및 동기 부여</p>
-                    <p class="bg-blue-50 p-3 rounded-lg flex items-center"><span class="mr-3 text-blue-500">✍️</span> 경기 데이터 분석 및 전략 수립</p>
+                    <p class="info-box bg-blue-50 p-3 rounded-lg flex items-center">
+                        <span class="mr-3 text-blue-500 text-xl">🏃</span> 
+                        <span class="text-sm">운동선수들의 훈련 지도</span>
+                    </p>
+                    <p class="info-box bg-blue-50 p-3 rounded-lg flex items-center">
+                        <span class="mr-3 text-blue-500 text-xl">📊</span> 
+                        <span class="text-sm">시합 전략 수립 및 분석</span>
+                    </p>
+                    <p class="info-box bg-blue-50 p-3 rounded-lg flex items-center">
+                        <span class="mr-3 text-blue-500 text-xl">👥</span> 
+                        <span class="text-sm">운동선수단 운영 총괄</span>
+                    </p>
+                    <p class="info-box bg-blue-50 p-3 rounded-lg flex items-center">
+                        <span class="mr-3 text-blue-500 text-xl">⚡</span> 
+                        <span class="text-sm">경기력 향상 관련 제반 사항 관리</span>
+                    </p>
                 </div>
             </div>
 
@@ -233,68 +217,115 @@
                 <div class="space-y-5">
                     <div>
                         <h3 class="font-bold text-lg text-indigo-600 mb-2">관련 학과</h3>
-                        <p class="text-gray-700 bg-gray-100 p-3 rounded-md">체육학과, 예체능교육과, 경호학과 등</p>
+                        <p class="text-gray-700 bg-gray-100 p-3 rounded-md">체육학과, 예체능교육과, 경호학과</p>
                     </div>
                     <div>
                         <h3 class="font-bold text-lg text-indigo-600 mb-2">필수 자격증</h3>
-                        <p class="text-gray-700 bg-gray-100 p-3 rounded-md">전문스포츠지도사 1, 2급<br>경기지도사 1, 2급</p>
+                        <div class="space-y-2">
+                            <p class="text-gray-700 bg-gray-100 p-2 rounded-md text-sm">🏅 전문스포츠지도사 1, 2급 (국가전문)</p>
+                            <p class="text-gray-700 bg-gray-100 p-2 rounded-md text-sm">🏅 경기지도사 1, 2급 (국가전문)</p>
+                        </div>
                     </div>
                 </div>
-                <p class="mt-6 text-center text-sm bg-yellow-100 text-yellow-800 p-3 rounded-lg">💡 국가대표팀 코치가 되려면 관련 자격증은 필수입니다!</p>
+                <p class="alert-box mt-6 text-center text-sm bg-yellow-100 text-yellow-800 p-3 rounded-lg">💡 국가대표팀 코치가 되려면 관련 자격증은 필수입니다!</p>
             </div>
 
             <!-- Slide 5: 만족도 및 전망 -->
             <div class="slide p-8 md:p-10 flex flex-col justify-center items-center text-center h-full">
                 <h2 class="text-2xl font-bold text-gray-800 mb-8">📈 이 직업, 만족스러울까?</h2>
                 <div class="w-full space-y-6">
-                    <div class="bg-green-100 p-4 rounded-lg">
+                    <div class="stat-card bg-green-100 p-5 rounded-lg">
                         <h3 class="text-lg font-bold text-green-800">직업 만족도</h3>
-                        <p class="text-3xl font-bold text-green-600">70.8% (좋음)</p>
+                        <p class="text-4xl font-bold text-green-600 mt-2">70.8%</p>
+                        <p class="text-green-700 text-sm mt-1">좋음</p>
                     </div>
-                    <div class="bg-blue-100 p-4 rounded-lg">
-                        <h3 class="text-lg font-bold text-blue-800">일자리 전망</h3>
-                        <p class="text-3xl font-bold text-blue-600">90% (유지 또는 증가)</p>
+                    <div class="stat-card bg-blue-100 p-5 rounded-lg">
+                        <h3 class="text-lg font-bold text-blue-800">일자리 전망 (향후 5년)</h3>
+                        <div class="mt-3 text-sm space-y-1">
+                            <p class="text-gray-700">감소 9% | 유지 47% | <span class="font-bold text-blue-600">증가 43%</span></p>
+                            <p class="text-blue-700 font-bold mt-2">총 90%가 유지 또는 증가 전망</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Slide 6: 업무 특성 -->
-            <div class="slide p-6 md:p-8 flex flex-col justify-center h-full text-sm">
+            <div class="slide p-6 md:p-8 flex flex-col justify-center h-full overflow-y-auto">
                 <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">💡 나와 잘 맞을까?</h2>
-                <div class="space-y-3">
-                    <p><strong class="text-blue-600">핵심 능력:</strong> 가르치기(티칭), 시간 관리, 사람 파악</p>
-                    <p><strong class="text-blue-600">필요 지식:</strong> 교육 및 훈련에 대한 깊은 이해</p>
-                    <p><strong class="text-blue-600">업무 환경:</strong> 실외 근무, 치열한 경쟁, 높은 활동량</p>
-                    <p><strong class="text-blue-600">추천 성격:</strong> 리더십, 인내, 자기통제</p>
-                    <p><strong class="text-blue-600">추천 흥미:</strong> 현실형(Realistic), 진취형(Enterprising)</p>
+                <div class="space-y-3 text-sm">
+                    <div class="bg-purple-50 p-3 rounded-lg">
+                        <p class="font-bold text-purple-700 mb-1">핵심 능력</p>
+                        <p class="text-gray-700">가르치기(97) · 유연성 및 균형(94) · 시간관리(93)</p>
+                    </div>
+                    <div class="bg-blue-50 p-3 rounded-lg">
+                        <p class="font-bold text-blue-700 mb-1">필요 지식</p>
+                        <p class="text-gray-700">교육 및 훈련(92) · 상담(67) · 의료(62)</p>
+                    </div>
+                    <div class="bg-orange-50 p-3 rounded-lg">
+                        <p class="font-bold text-orange-700 mb-1">업무 환경</p>
+                        <p class="text-gray-700">걷거나 뛰기(100) · 치열한 경쟁(99) · 실외근무(96)</p>
+                    </div>
+                    <div class="bg-green-50 p-3 rounded-lg">
+                        <p class="font-bold text-green-700 mb-1">추천 성격</p>
+                        <p class="text-gray-700">리더십(83) · 독립성(67) · 인내(66)</p>
+                    </div>
+                    <div class="bg-pink-50 p-3 rounded-lg">
+                        <p class="font-bold text-pink-700 mb-1">추천 흥미 유형</p>
+                        <p class="text-gray-700">현실형(86) · 진취형(75)</p>
+                    </div>
                 </div>
             </div>
 
             <!-- Slide 7: 필요기술 및 지식 -->
             <div class="slide p-8 md:p-10 flex flex-col justify-center h-full">
                 <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">🏆 진짜 전문가가 되려면?</h2>
-                <p class="text-center text-gray-600 mb-6">좋은 선수가 바로 좋은 코치가 되는 것은 아닙니다. 선수 경력 외에도 다음 역량이 필수적입니다.</p>
-                <ul class="space-y-3 list-inside list-disc text-gray-700">
-                    <li>선수들을 이끌 수 있는 <span class="font-bold text-indigo-600">강력한 리더십</span></li>
-                    <li>체계적인 훈련을 위한 <span class="font-bold text-indigo-600">이론과 기술적 지식</span></li>
-                    <li>대학 전공 및 <span class="font-bold text-indigo-600">지도자 연수 과정 이수</span>가 매우 유리</li>
-                </ul>
+                <p class="text-center text-gray-600 mb-6 text-sm">좋은 선수가 바로 좋은 코치가 되는 것은 아닙니다.</p>
+                <div class="space-y-3 text-sm text-gray-700">
+                    <div class="info-box bg-indigo-50 p-3 rounded-lg">
+                        <p>✅ 선수들을 이끌 수 있는 <span class="font-bold text-indigo-600">강력한 리더십</span></p>
+                    </div>
+                    <div class="info-box bg-indigo-50 p-3 rounded-lg">
+                        <p>✅ 체계적인 훈련을 위한 <span class="font-bold text-indigo-600">이론과 기술적 지식</span></p>
+                    </div>
+                    <div class="info-box bg-indigo-50 p-3 rounded-lg">
+                        <p>✅ 대학에서 <span class="font-bold text-indigo-600">체육 관련 학문 전공</span>이 매우 유리</p>
+                    </div>
+                    <div class="info-box bg-indigo-50 p-3 rounded-lg">
+                        <p>✅ 국민체육진흥공단 <span class="font-bold text-indigo-600">지도자 연수과정 이수</span></p>
+                    </div>
+                </div>
+                <p class="alert-box mt-4 text-center text-xs bg-yellow-100 text-yellow-800 p-2 rounded-lg">💡 체육교사 겸임 시 경기지도자 또는 체육 2급 정교사 자격 필수</p>
             </div>
 
             <!-- Slide 8: 임금 -->
             <div class="slide p-8 md:p-10 flex flex-col justify-center items-center text-center h-full">
                 <h2 class="text-2xl font-bold text-gray-800 mb-6">💰 연봉은 어느 정도일까?</h2>
-                <div class="text-center bg-gray-100 p-6 rounded-lg">
-                    <p class="text-gray-700">제공된 정보에는 임금 데이터가 없습니다.</p>
-                    <p class="mt-4 text-gray-600">감독 및 코치의 임금은 <strong class="text-gray-800">종목, 소속팀의 규모, 개인의 경력과 역량</strong>에 따라 매우 큰 차이를 보입니다. 높은 성과를 내는 스타 감독의 경우 높은 연봉을 받습니다.</p>
+                <div class="text-center bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg border-2 border-gray-200">
+                    <div class="mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <p class="text-gray-600 mb-4">구체적인 임금 데이터는 제공되지 않습니다.</p>
+                    <div class="bg-white p-4 rounded-lg text-left text-sm space-y-2">
+                        <p class="text-gray-700">💼 <strong>종목별 차이:</strong> 인기 종목일수록 높음</p>
+                        <p class="text-gray-700">🏢 <strong>소속팀 규모:</strong> 프로팀과 아마추어팀 격차</p>
+                        <p class="text-gray-700">⭐ <strong>개인 경력:</strong> 성과에 따라 큰 차이</p>
+                    </div>
                 </div>
             </div>
 
             <!-- Slide 9: 출처 -->
-            <div class="slide p-8 md:p-12 flex flex-col justify-center items-center text-center h-full bg-gray-800 text-white">
-                <h2 class="text-2xl font-bold mb-4">Source</h2>
-                <p class="text-4xl font-bold text-gray-200">고용24</p>
-                <p class="mt-2 text-lg text-gray-400">work.go.kr</p>
+            <div class="slide p-8 md:p-12 flex flex-col justify-center items-center text-center h-full bg-gradient-to-br from-gray-800 to-gray-900 text-white">
+                <div class="mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-white opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-bold mb-4">데이터 출처</h2>
+                <p class="text-4xl font-bold text-white mb-2">고용24</p>
+                <p class="text-xl text-gray-300">work.go.kr</p>
+                <p class="mt-6 text-sm text-gray-400">한국고용정보원 직업정보 제공</p>
             </div>
             
         </div>
